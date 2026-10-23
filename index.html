@@ -57,8 +57,38 @@
       margin: 0 0 18px;
     }
     .head-subtitle { font-size: 18px; line-height: 1.7; color: var(--muted); max-width: 650px; margin: 0; }
-    .pride-rule { display: block; width: 102px; height: 5px; border-radius: 999px; margin: -3px 0 22px; background: linear-gradient(90deg, #e64b4b 0% 16.667%, #f3a43b 16.667% 33.333%, #e7c84e 33.333% 50%, #4d9c70 50% 66.667%, #5088cc 66.667% 83.333%, #915bb8 83.333% 100%); }
-    .application-status { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 12px; line-height: 1.6; letter-spacing: .065em; font-weight: 500; color: #48647a; margin: 12px 0 0; }
+    .application-status {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 7px 12px;
+      margin: 9px 0 15px; font-family: "Space Grotesk", Arial, sans-serif;
+      color: #27394b; line-height: 1.35;
+    }
+    .application-status strong { font-size: clamp(21px, 3vw, 26px); font-weight: 700; letter-spacing: -.035em; }
+    .application-status .term {
+      font: 500 13px/1.4 "IBM Plex Mono", Consolas, monospace; color: var(--muted);
+      letter-spacing: .02em; padding: 3px 0 0;
+    }
+    .applicant-icon { font-size: 23px; line-height: 1; }
+    .identity-links {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 7px 16px;
+      margin: 27px 0 0; font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: clamp(12px, 1.65vw, 16px); line-height: 1.65; font-weight: 500;
+    }
+    .identity-links a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
+    .identity-links .identity-email {
+      user-select: text; overflow-wrap: anywhere; color: #b56738;
+    }
+    .identity-links .gh { color: #337cc4; }
+    .identity-links .scholar { color: #548d70; }
+    .identity-links .pronouns { color: #8b5fb0; }
+    .identity-links .separator { color: #8996a2; font-size: .87em; }
+    .pride-rule {
+      display: block; width: min(100%, 700px); height: 5px; border-radius: 999px;
+      margin: 16px 0 0;
+      background: linear-gradient(90deg,
+        #e35157 0% 16.666%, #ef9941 16.666% 33.333%,
+        #e5c655 33.333% 50%, #5ca777 50% 66.666%,
+        #568ace 66.666% 83.333%, #9b6cbd 83.333% 100%);
+    }
     .section { border-top: 1px solid var(--border); padding: 55px 0 62px; }
     .intro { display: grid; grid-template-columns: minmax(205px, 260px) 1fr; gap: clamp(38px, 7vw, 105px); align-items: start; }
     .portrait { margin: 4px 0 0; }
@@ -75,9 +105,6 @@
     .intro h2 { font-size: clamp(27px, 3.8vw, 40px); font-weight: 500; letter-spacing: -.045em; line-height: 1.19; margin: 13px 0 20px; }
     .intro p { color: #3b4856; font-size: 16px; line-height: 1.8; margin-bottom: 15px; }
     .intro strong, .interest strong { color: var(--ink); font-weight: 700; }
-    .quick-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 22px; margin-top: 26px; font-size: 14px; font-weight: 600; }
-    .contact-email { color: var(--ink); font-weight: 500; user-select: text; overflow-wrap: anywhere; }
-    .quick-links a { text-decoration: none; border-bottom: 1px solid #c8d9de; padding-bottom: 3px; }
     .two-col { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: clamp(38px, 7vw, 105px); }
     .section-title h2 { font-size: clamp(26px, 3.5vw, 36px); line-height: 1.15; letter-spacing: -.05em; font-weight: 600; margin: 12px 0 0; }
     .interest + .interest, .paper + .paper { border-top: 1px solid var(--border); padding-top: 25px; margin-top: 24px; }
@@ -104,6 +131,9 @@
     @media (max-width: 410px) {
       .portrait img { width: 118px; }
       .head-subtitle { font-size: 16px; }
+      .identity-links { gap: 6px 10px; }
+      .identity-links .separator { display: none; }
+      .pride-rule { height: 4px; }
       .site-footer { flex-direction: column; gap: 5px; }
     }
   </style>
@@ -113,9 +143,18 @@
     <header class="top">
       <p class="eyebrow">NLP &nbsp;/&nbsp; LLM Behavior &nbsp;/&nbsp; Trustworthy AI</p>
       <h1>Yifan Lyu<span aria-hidden="true" style="color:#a4b5bd">.</span></h1>
-      <span class="pride-rule" role="img" aria-label="Rainbow Pride colors"></span>
+      <p class="application-status"><span class="applicant-icon" aria-hidden="true">🎓</span><strong>PhD Applicant</strong><span class="term">Fall 2027</span></p>
       <p class="head-subtitle">M.S. student in Software Engineering at <strong>Dalian University of Technology</strong>.<br>Expected graduation: June 2027.</p>
-      <p class="application-status">PhD Applicant · Fall 2027</p>
+      <div class="identity-links" aria-label="Contact and identity">
+        <a class="gh" href="https://github.com/SteveLyu1" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="separator" aria-hidden="true">|</span>
+        <span class="identity-email">stevelyu811@gmail.com</span>
+        <span class="separator" aria-hidden="true">|</span>
+        <a class="scholar" href="https://scholar.google.com/citations?user=cswLL6IAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <span class="separator" aria-hidden="true">|</span>
+        <span class="pronouns">he/him</span>
+      </div>
+      <span class="pride-rule" role="img" aria-label="Rainbow Pride colors"></span>
     </header>
 
     <section class="section intro" aria-labelledby="about-heading">
@@ -127,11 +166,6 @@
         <h2 id="about-heading">Curious about why models behave the way they do.</h2>
         <p>I study how language models use linguistic and social context, <strong>why their judgments can be unreliable</strong>, and how careful experiments can help distinguish meaningful capabilities from misleading cues.</p>
         <p>I am equally interested in using these insights to design more dependable AI systems. Beyond model behavior, I care about the two-way relationship between AI and society.</p>
-        <div class="quick-links" aria-label="Contact links">
-          <span class="contact-email">stevelyu811@gmail.com</span>
-          <a href="https://github.com/SteveLyu1" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
-          <a href="https://scholar.google.com/citations?user=cswLL6IAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar &#8599;</a>
-        </div>
       </div>
     </section>
 
@@ -190,7 +224,7 @@
 
     <section class="section two-col outside" aria-labelledby="outside-heading">
       <div class="section-title">
-        <span class="section-number">03 / Beyond research</span>
+        <span class="section-number">03 / Beyond research <span aria-hidden="true" style="font-size:14px; color:#ab7d9d; vertical-align:baseline;">♫</span></span>
         <h2 id="outside-heading">Away from<br>the screen</h2>
       </div>
       <div>
