@@ -57,6 +57,11 @@ on:
       - "!README.md"
   workflow_dispatch:
 
+# Prevent later site edits from being overwritten by overlapping deployments.
+concurrency:
+  group: personal-site-deploy
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
