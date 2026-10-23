@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Yifan (Steve) Lyu — M.S. student at Dalian University of Technology researching LLM behavior, social NLP, and trustworthy AI.">
+  <meta name="description" content="Yifan (Steve) Lyu — Fall 2027 PhD applicant and M.S. student at Dalian University of Technology, studying LLM behavior, social NLP, and trustworthy AI.">
   <title>Yifan Lyu · NLP & Trustworthy AI</title>
   <link rel="canonical" href="https://stevelyu1.github.io/yifanlyu.github.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +57,8 @@
       margin: 0 0 18px;
     }
     .head-subtitle { font-size: 18px; line-height: 1.7; color: var(--muted); max-width: 650px; margin: 0; }
+    .pride-rule { display: block; width: 102px; height: 5px; border-radius: 999px; margin: -3px 0 22px; background: linear-gradient(90deg, #e64b4b 0% 16.667%, #f3a43b 16.667% 33.333%, #e7c84e 33.333% 50%, #4d9c70 50% 66.667%, #5088cc 66.667% 83.333%, #915bb8 83.333% 100%); }
+    .application-status { font-family: "IBM Plex Mono", Consolas, monospace; font-size: 12px; line-height: 1.6; letter-spacing: .065em; font-weight: 500; color: #48647a; margin: 12px 0 0; }
     .section { border-top: 1px solid var(--border); padding: 55px 0 62px; }
     .intro { display: grid; grid-template-columns: minmax(205px, 260px) 1fr; gap: clamp(38px, 7vw, 105px); align-items: start; }
     .portrait { margin: 4px 0 0; }
@@ -69,11 +71,12 @@
       border-radius: 50%;
       background: #f0f2f4;
     }
-    .portrait figcaption { font-size: 12px; line-height: 1.75; color: var(--muted); margin-top: 19px; }
+
     .intro h2 { font-size: clamp(27px, 3.8vw, 40px); font-weight: 500; letter-spacing: -.045em; line-height: 1.19; margin: 13px 0 20px; }
     .intro p { color: #3b4856; font-size: 16px; line-height: 1.8; margin-bottom: 15px; }
     .intro strong, .interest strong { color: var(--ink); font-weight: 700; }
-    .quick-links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; font-size: 14px; font-weight: 600; }
+    .quick-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 22px; margin-top: 26px; font-size: 14px; font-weight: 600; }
+    .contact-email { color: var(--ink); font-weight: 500; user-select: text; overflow-wrap: anywhere; }
     .quick-links a { text-decoration: none; border-bottom: 1px solid #c8d9de; padding-bottom: 3px; }
     .two-col { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: clamp(38px, 7vw, 105px); }
     .section-title h2 { font-size: clamp(26px, 3.5vw, 36px); line-height: 1.15; letter-spacing: -.05em; font-weight: 600; margin: 12px 0 0; }
@@ -84,13 +87,8 @@
     .paper-tag { font-size: 10px; color: #6a7c8b; letter-spacing: .08em; }
     .paper p { font-size: 15px; }
     .outside p { font-size: 16px; }
-    .interests { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
-    .interests li {
-      display: inline-flex; align-items: center;
-      padding: 7px 14px; border: 1px solid #e1e8ec;
-      border-radius: 999px; background: var(--wash);
-      color: #476071; font-size: 13px; font-weight: 600;
-    }
+    .paper-links { margin-top: 10px; font-size: 13px; font-weight: 600; }
+    .paper-links a { text-decoration: none; border-bottom: 1px solid #adc8d1; padding-bottom: 2px; }
     .site-footer { border-top: 1px solid var(--border); padding: 22px 0 38px; color: #86929b; font-size: 12px; display: flex; justify-content: space-between; gap: 16px; }
     .site-footer a { color: #687482; text-decoration: none; }
     @media (max-width: 740px) {
@@ -98,9 +96,8 @@
       .top { padding: 55px 0 37px; }
       .section { padding: 39px 0 44px; }
       .intro, .two-col { grid-template-columns: 1fr; gap: 28px; }
-      .portrait { display: flex; align-items: center; gap: 18px; }
+      .portrait { display: block; }
       .portrait img { width: 140px; }
-      .portrait figcaption { margin: 0; }
       .intro h2 { margin-top: 11px; }
       .section-title h2 { margin-top: 6px; }
     }
@@ -116,22 +113,24 @@
     <header class="top">
       <p class="eyebrow">NLP &nbsp;/&nbsp; LLM Behavior &nbsp;/&nbsp; Trustworthy AI</p>
       <h1>Yifan Lyu<span aria-hidden="true" style="color:#a4b5bd">.</span></h1>
+      <span class="pride-rule" role="img" aria-label="Rainbow Pride colors"></span>
       <p class="head-subtitle">M.S. student in Software Engineering at <strong>Dalian University of Technology</strong>.<br>Expected graduation: June 2027.</p>
+      <p class="application-status">PhD Applicant · Fall 2027</p>
     </header>
 
     <section class="section intro" aria-labelledby="about-heading">
       <figure class="portrait">
         <img src="assets/img/prof_pic.jpg" alt="Portrait of Yifan Lyu" width="250" height="250" fetchpriority="high">
-        <figcaption>Dalian, China<br>Researcher &amp; lifelong learner</figcaption>
+
       </figure>
       <div>
-        <span class="mini-label">Hello, I'm Steve</span>
         <h2 id="about-heading">Curious about why models behave the way they do.</h2>
         <p>I study how language models use linguistic and social context, <strong>why their judgments can be unreliable</strong>, and how careful experiments can help distinguish meaningful capabilities from misleading cues.</p>
         <p>I am equally interested in using these insights to design more dependable AI systems. Beyond model behavior, I care about the two-way relationship between AI and society.</p>
         <div class="quick-links" aria-label="Contact links">
-          <a href="mailto:stevelyu811@gmail.com">Email &#8599;</a>
-          <a href="https://github.com/SteveLyu1" rel="noopener noreferrer">GitHub &#8599;</a>
+          <span class="contact-email">stevelyu811@gmail.com</span>
+          <a href="https://github.com/SteveLyu1" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
+          <a href="https://scholar.google.com/citations?user=cswLL6IAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar &#8599;</a>
         </div>
       </div>
     </section>
@@ -167,16 +166,19 @@
           <span class="paper-tag">2026 · IJCAI-ECAI · Accepted, Main Track</span>
           <h3>TCDA: Thread-Constrained Discourse-Aware Modeling for Conversational Sentiment Quadruple Analysis</h3>
           <p>Discourse-aware positional encoding and thread-constrained structure for conversational sentiment analysis.</p>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2605.01717" target="_blank" rel="noopener noreferrer" aria-label="TCDA on arXiv">arXiv &#8599;</a></div>
         </article>
         <article class="paper">
           <span class="paper-tag">2026 · arXiv Preprint</span>
           <h3>SPAR-Hate: Auditor-Guided Multi-Perspective Role Reasoning for Bilingual Hate Speech Parsing</h3>
           <p>Multi-perspective reasoning and evidence-constrained arbitration for structured bilingual hate-speech parsing.</p>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2608.22018" target="_blank" rel="noopener noreferrer" aria-label="SPAR-Hate on arXiv">arXiv &#8599;</a></div>
         </article>
         <article class="paper">
           <span class="paper-tag">2026 · arXiv Preprint</span>
           <h3>Signal or Spurious Cue? A Randomized Audit of Survey-Country Metadata in LLM Social Inference</h3>
           <p>A randomized audit separating the value of verified country information from shifts induced by arbitrary country labels.</p>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2608.06085" target="_blank" rel="noopener noreferrer" aria-label="Signal or Spurious Cue on arXiv">arXiv &#8599;</a></div>
         </article>
         <article class="paper">
           <span class="paper-tag">2026 · IEEE SmartIoT · Accepted</span>
@@ -193,12 +195,6 @@
       </div>
       <div>
         <p>Outside of research, I enjoy cooking, discovering music, watching films, and hiking. I like experimenting with new recipes and finding music across different genres—<strong>electropop has been on repeat lately</strong>. A good film or a walk somewhere new is always welcome.</p>
-        <ul class="interests" aria-label="Personal interests">
-          <li>Cooking</li>
-          <li>Music</li>
-          <li>Films</li>
-          <li>Hiking</li>
-        </ul>
       </div>
     </section>
 
