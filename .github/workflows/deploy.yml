@@ -102,6 +102,10 @@ jobs:
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
           bundle exec jekyll build
+          # A successful Jekyll command does not guarantee the Pages root exists.
+          test -f _site/index.html || { echo 'ERROR: _site/index.html missing; aborting deployment'; exit 1; }
+          grep -q 'Yifan Lyu' _site/index.html || { echo 'ERROR: homepage content missing'; exit 1; }
+          test -f _site/assets/img/prof_pic.jpg || { echo 'ERROR: profile image missing'; exit 1; }
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss
