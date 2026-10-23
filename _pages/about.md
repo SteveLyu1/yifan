@@ -6,9 +6,11 @@ subtitle: M.S. Student in Software Engineering · Dalian University of Technolog
 
 profile:
   align: right
-  image:
+  image: prof_pic.jpg
   image_circular: false
   more_info:
+    <p>Dalian, China</p>
+    <p>M.S. Student, Dalian University of Technology</p>
 
 selected_papers: true
 social: true
