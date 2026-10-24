@@ -100,7 +100,8 @@
     .portrait img {
       display: block;
       width: min(100%, 250px);
-      aspect-ratio: 1;
+      height: auto;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       object-position: center center;
       border-radius: 50%;
@@ -141,12 +142,12 @@
       .section { padding: 39px 0 44px; }
       .intro, .two-col { grid-template-columns: 1fr; gap: 28px; }
       .portrait { display: block; }
-      .portrait img { width: 140px; }
+      .portrait img { width: 140px; height: 140px; }
       .intro h2 { margin-top: 11px; }
       .section-title h2 { margin-top: 6px; }
     }
     @media (max-width: 410px) {
-      .portrait img { width: 118px; }
+      .portrait img { width: 118px; height: 118px; }
       .head-subtitle { font-size: 16px; }
       .identity-links { gap: 6px 10px; }
       .identity-links .separator { display: none; }
