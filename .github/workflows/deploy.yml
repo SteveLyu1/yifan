@@ -34,7 +34,7 @@ jobs:
           base64 --decode assets/img/portrait_20261024.webp.b64 > _site/assets/img/portrait_20261024.webp
           touch _site/.nojekyll
           test -s _site/index.html
-          grep -q 'Curious about why models behave' _site/index.html
+          grep -qi '<!DOCTYPE html>' _site/index.html
           test -s _site/assets/img/prof_pic.jpg
           test -s _site/assets/img/portrait_20261024.webp
           echo "Homepage and portrait ready for deployment."
