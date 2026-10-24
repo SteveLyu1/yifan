@@ -28,8 +28,8 @@
       background: var(--bg) !important;
       color: var(--ink) !important;
       font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.75;
+      font-size: 18px;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -38,11 +38,11 @@
     a:focus-visible { outline: 3px solid #84b9cb; outline-offset: 4px; border-radius: 2px; }
     h1, h2, h3, p { margin-top: 0; }
     h1, h2, h3 { font-family: "Space Grotesk", "Arial", sans-serif; }
-    .shell { width: min(100% - 76px, 1010px); margin-inline: auto; }
+    .shell { width: min(100% - 76px, 1120px); margin-inline: auto; }
     .top { padding: 84px 0 50px; }
     .section-number, .paper-tag, .mini-label {
       font-family: "IBM Plex Mono", Consolas, monospace;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 500;
       letter-spacing: .13em;
       text-transform: uppercase;
@@ -52,7 +52,7 @@
       margin: 25px 0 0;
       color: #2a647b;
       font-family: "IBM Plex Mono", Consolas, monospace;
-      font-size: clamp(11px, 1.35vw, 13px);
+      font-size: clamp(12px, 1.3vw, 15px);
       font-weight: 500;
       line-height: 1.9;
       letter-spacing: .02em;
@@ -65,15 +65,15 @@
       font-weight: 600;
       margin: 0 0 18px;
     }
-    .head-subtitle { font-size: 18px; line-height: 1.7; color: var(--muted); max-width: 650px; margin: 0; }
+    .head-subtitle { font-size: 20px; line-height: 1.65; color: var(--muted); max-width: 650px; margin: 0; }
     .application-status {
       display: flex; align-items: center; flex-wrap: wrap; gap: 7px 12px;
       margin: 9px 0 15px; font-family: "Space Grotesk", Arial, sans-serif;
       color: #27394b; line-height: 1.35;
     }
-    .application-status strong { font-size: clamp(21px, 3vw, 26px); font-weight: 700; letter-spacing: -.035em; }
+    .application-status strong { font-size: clamp(23px, 3vw, 28px); font-weight: 700; letter-spacing: -.035em; }
     .application-status .term {
-      font: 500 13px/1.4 "IBM Plex Mono", Consolas, monospace; color: var(--muted);
+      font: 500 14px/1.4 "IBM Plex Mono", Consolas, monospace; color: var(--muted);
       letter-spacing: .02em; padding: 3px 0 0;
     }
     .identity-stack {
@@ -84,7 +84,7 @@
     .identity-links {
       display: flex; align-items: center; flex-wrap: wrap; gap: 7px 16px;
       margin: 0; font-family: "IBM Plex Mono", Consolas, monospace;
-      font-size: clamp(12px, 1.65vw, 16px); line-height: 1.65; font-weight: 500;
+      font-size: clamp(13px, 1.55vw, 17px); line-height: 1.65; font-weight: 500;
     }
     .identity-links a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
     .identity-links .identity-email {
@@ -94,13 +94,13 @@
     .identity-links .scholar { color: #548d70; }
     .identity-links .pronouns { color: #8b5fb0; }
     .identity-links .separator { color: #8996a2; font-size: .87em; }
-    .section { border-top: 1px solid var(--border); padding: 55px 0 62px; }
-    .intro { display: grid; grid-template-columns: minmax(205px, 260px) minmax(0, 1fr); gap: clamp(38px, 7vw, 105px); align-items: start; }
-    .intro-aside h2 { font-size: clamp(27px, 3.5vw, 36px); font-weight: 600; letter-spacing: -.05em; line-height: 1.15; margin: 4px 0 25px; }
+    .section { border-top: 1px solid var(--border); padding: 64px 0 72px; }
+    .intro { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(42px, 5.5vw, 80px); align-items: start; }
+    .intro-aside h2 { font-size: clamp(29px, 3.5vw, 40px); font-weight: 600; letter-spacing: -.05em; line-height: 1.15; margin: 4px 0 25px; }
     .portrait { margin: 0; }
     .portrait img {
       display: block;
-      width: min(100%, 250px);
+      width: min(100%, 292px);
       height: auto;
       aspect-ratio: 1 / 1;
       object-fit: cover;
@@ -109,22 +109,23 @@
       background: #f0f2f4;
     }
 
-    .intro-copy { max-width: 680px; }
-    .intro-copy p { color: #3b4856; font-size: 16px; line-height: 1.82; margin: 0 0 20px; }
+    .intro-copy { max-width: 770px; }
+    .intro-copy p { color: #3b4856; font-size: 19px; line-height: 1.76; margin: 0 0 24px; }
     .intro-copy p:last-child { margin-bottom: 0; }
     .intro strong, .interest strong { color: var(--ink); font-weight: 700; }
-    .two-col { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: clamp(38px, 7vw, 105px); }
-    .section-title h2 { font-size: clamp(26px, 3.5vw, 36px); line-height: 1.15; letter-spacing: -.05em; font-weight: 600; margin: 12px 0 0; }
-    .interest + .interest, .paper + .paper { border-top: 1px solid var(--border); padding-top: 25px; margin-top: 24px; }
-    .interest h3 { display: flex; align-items: baseline; gap: 11px; font-size: 18px; letter-spacing: -.025em; line-height: 1.4; font-weight: 600; margin-bottom: 9px; }
-    .interest-icon { font-size: 19px; line-height: 1; flex: 0 0 auto; }
+    .two-col { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(42px, 5.5vw, 80px); }
+    .section-title h2 { font-size: clamp(29px, 3.5vw, 40px); line-height: 1.15; letter-spacing: -.05em; font-weight: 600; margin: 12px 0 0; }
+    .interest + .interest, .paper + .paper { border-top: 1px solid var(--border); padding-top: 30px; margin-top: 30px; }
+    .interest h3 { display: flex; align-items: baseline; gap: 12px; font-size: 21px; letter-spacing: -.025em; line-height: 1.4; font-weight: 600; margin-bottom: 9px; }
+    .interest-icon { font-size: 22px; line-height: 1; flex: 0 0 auto; }
     .interest p, .paper p, .outside p { color: #536170; margin-bottom: 0; }
-    .paper h3 { font-size: 18px; line-height: 1.45; letter-spacing: -.02em; font-weight: 600; margin: 6px 0 8px; }
-    .paper-tag { font-size: 10px; color: #6a7c8b; letter-spacing: .08em; }
-    .paper p { font-size: 15px; }
-    .paper-authors { font-size: 14px !important; line-height: 1.65; color: #677684 !important; margin: 6px 0 10px; }
+    .interest p { font-size: 18px; line-height: 1.7; }
+    .paper h3 { font-size: 21px; line-height: 1.45; letter-spacing: -.02em; font-weight: 600; margin: 6px 0 8px; }
+    .paper-tag { font-size: 12px; color: #6a7c8b; letter-spacing: .08em; }
+    .paper p { font-size: 17px; line-height: 1.72; }
+    .paper-authors { font-size: 16px !important; line-height: 1.65; color: #677684 !important; margin: 6px 0 10px; }
     .paper-authors strong { color: var(--ink); font-weight: 700; }
-    .outside p { font-size: 16px; }
+    .outside p { font-size: 18px; line-height: 1.72; }
     .paper-title-link {
       color: inherit;
       text-decoration: underline;
@@ -138,6 +139,11 @@
       text-decoration-color: currentColor;
     }
     .outside { padding-bottom: 92px; }
+    @media (max-width: 900px) and (min-width: 741px) {
+      .shell { width: min(100% - 54px, 840px); }
+      .intro, .two-col { grid-template-columns: 240px minmax(0, 1fr); gap: 40px; }
+      .portrait img { width: 240px; }
+    }
     @media (max-width: 740px) {
       .shell { width: min(100% - 42px, 590px); }
       .top { padding: 55px 0 37px; }
@@ -145,15 +151,18 @@
       .intro, .two-col { grid-template-columns: 1fr; gap: 28px; }
       .intro-aside { display: flex; flex-direction: row-reverse; justify-content: flex-end; align-items: center; gap: 24px; }
       .intro-aside h2 { margin: 0; }
-      .portrait img { width: 140px; height: 140px; }
+      .portrait img { width: 172px; height: 172px; }
       .section-title h2 { margin-top: 6px; }
     }
     @media (max-width: 410px) {
-      .portrait img { width: 118px; height: 118px; }
-      .head-subtitle { font-size: 16px; }
+      .portrait img { width: 144px; height: 144px; }
+      .head-subtitle { font-size: 18px; }
+      .intro-copy p { font-size: 18px; line-height: 1.74; }
+      .interest p { font-size: 17.5px; }
+      .paper h3 { font-size: 19.5px; }
       .identity-links { gap: 6px 10px; }
       .identity-links .separator { display: none; }
-      .research-overview { font-size: 11px; }
+      .research-overview { font-size: 12px; }
       .outside { padding-bottom: 55px; }
     }
   </style>
@@ -182,7 +191,7 @@
       <div class="intro-aside">
         <h2 id="about-heading">About</h2>
         <figure class="portrait">
-          <img src="assets/img/portrait_20261024.webp" alt="Portrait of Yifan Lyu" width="250" height="250" fetchpriority="high">
+          <img src="assets/img/portrait_20261024.webp" alt="Portrait of Yifan Lyu" width="292" height="292" fetchpriority="high">
         </figure>
       </div>
       <div class="intro-copy">
