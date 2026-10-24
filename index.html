@@ -95,8 +95,9 @@
     .identity-links .pronouns { color: #8b5fb0; }
     .identity-links .separator { color: #8996a2; font-size: .87em; }
     .section { border-top: 1px solid var(--border); padding: 55px 0 62px; }
-    .intro { display: grid; grid-template-columns: minmax(205px, 260px) 1fr; gap: clamp(38px, 7vw, 105px); align-items: start; }
-    .portrait { margin: 4px 0 0; }
+    .intro { display: grid; grid-template-columns: minmax(205px, 260px) minmax(0, 1fr); gap: clamp(38px, 7vw, 105px); align-items: start; }
+    .intro-aside h2 { font-size: clamp(27px, 3.5vw, 36px); font-weight: 600; letter-spacing: -.05em; line-height: 1.15; margin: 4px 0 25px; }
+    .portrait { margin: 0; }
     .portrait img {
       display: block;
       width: min(100%, 250px);
@@ -108,8 +109,9 @@
       background: #f0f2f4;
     }
 
-    .intro h2 { font-size: clamp(27px, 3.8vw, 40px); font-weight: 500; letter-spacing: -.045em; line-height: 1.19; margin: 13px 0 20px; }
-    .intro p { color: #3b4856; font-size: 16px; line-height: 1.8; margin-bottom: 15px; }
+    .intro-copy { max-width: 680px; }
+    .intro-copy p { color: #3b4856; font-size: 16px; line-height: 1.82; margin: 0 0 20px; }
+    .intro-copy p:last-child { margin-bottom: 0; }
     .intro strong, .interest strong { color: var(--ink); font-weight: 700; }
     .two-col { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: clamp(38px, 7vw, 105px); }
     .section-title h2 { font-size: clamp(26px, 3.5vw, 36px); line-height: 1.15; letter-spacing: -.05em; font-weight: 600; margin: 12px 0 0; }
@@ -141,9 +143,9 @@
       .top { padding: 55px 0 37px; }
       .section { padding: 39px 0 44px; }
       .intro, .two-col { grid-template-columns: 1fr; gap: 28px; }
-      .portrait { display: block; }
+      .intro-aside { display: flex; flex-direction: row-reverse; justify-content: flex-end; align-items: center; gap: 24px; }
+      .intro-aside h2 { margin: 0; }
       .portrait img { width: 140px; height: 140px; }
-      .intro h2 { margin-top: 11px; }
       .section-title h2 { margin-top: 6px; }
     }
     @media (max-width: 410px) {
@@ -177,14 +179,16 @@
     </header>
 
     <section class="section intro" aria-labelledby="about-heading">
-      <figure class="portrait">
-        <img src="assets/img/portrait_20261024.webp" alt="Portrait of Yifan Lyu" width="250" height="250" fetchpriority="high">
-
-      </figure>
-      <div>
-        <h2 id="about-heading">Curious about why models behave the way they do.</h2>
-        <p>I study how language models use linguistic and social context, <strong>why their judgments can be unreliable</strong>, and how careful experiments can help distinguish meaningful capabilities from misleading cues.</p>
-        <p>I am equally interested in using these insights to design more dependable AI systems. I am also interested in how social context shapes AI behavior—and how AI systems, in turn, shape human interaction.</p>
+      <div class="intro-aside">
+        <h2 id="about-heading">About</h2>
+        <figure class="portrait">
+          <img src="assets/img/portrait_20261024.webp" alt="Portrait of Yifan Lyu" width="250" height="250" fetchpriority="high">
+        </figure>
+      </div>
+      <div class="intro-copy">
+        <p>I have long been curious about how the same story can be interpreted so differently across communities. Seeing how information is shared and discussed online has also made me think about how language, social identity, and group dynamics shape people's perceptions. These questions interested me long before I began studying NLP.</p>
+        <p>Working in NLP gave me a more systematic way to explore some of these questions—and raised new ones about AI itself. As language models become part of everyday life, I am interested in what shapes their behavior, where their apparent capabilities fall short, and whose perspectives they might overlook. I particularly enjoy testing intuitive explanations against evidence, even when the findings challenge my own assumptions.</p>
+        <p>I am equally interested in using these insights to make AI reasoning more reliable, and in exploring whether language models can help us better understand social behavior without treating them as substitutes for the people they aim to represent. Ultimately, I hope my research can contribute, even in small ways, to AI that is more reliable, inclusive, and attentive to those who are often underrepresented.</p>
       </div>
     </section>
 
@@ -199,11 +203,11 @@
           <p>How do prompting, contextual information, and spurious cues influence language-model judgments? I use controlled comparisons and behavioral auditing to investigate failure modes and the limits of what evaluations actually demonstrate.</p>
         </div>
         <div class="interest">
-          <h3><span class="interest-icon" aria-hidden="true">🗣️</span><span>Social &amp; Multilingual NLP</span></h3>
+          <h3><span class="interest-icon" aria-hidden="true">🗣️</span><span>Language, Society &amp; AI</span></h3>
           <p>How do language models handle culture, identity, discourse, and social perspective? I am interested in social reasoning, multilingual fairness, and the quality of datasets and annotations that support these claims.</p>
         </div>
         <div class="interest">
-          <h3><span class="interest-icon" aria-hidden="true">🧩</span><span>Reliable &amp; Structured AI Systems</span></h3>
+          <h3><span class="interest-icon" aria-hidden="true">🧩</span><span>Structured Reasoning &amp; Reliability</span></h3>
           <p>How can empirical insights lead to better systems? I explore structured reasoning, evidence-grounded arbitration, verification, and coordinated LLM workflows.</p>
         </div>
       </div>
