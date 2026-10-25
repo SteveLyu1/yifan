@@ -1,0 +1,55 @@
+name: Verify published site integrity
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+# The audit must never have permission to edit the site.
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Compare public site with source
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout approved source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 pinned
+        with:
+          ref: main
+          path: source
+          persist-credentials: false
+
+      - name: Checkout published branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 pinned
+        with:
+          ref: gh-pages
+          path: published
+          persist-credentials: false
+
+      - name: Compare all published site files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Verify that the published page and assets match their source.
+          cmp source/index.html published/index.html
+          cmp source/assets/img/prof_pic.jpg published/assets/img/prof_pic.jpg
+          base64 --decode source/assets/img/portrait_20261024.webp.b64 | cmp - published/assets/img/portrait_20261024.webp
+          base64 --decode source/assets/pdf/Yifan_Lyu_CV.pdf.b64 | cmp - published/assets/pdf/Yifan_Lyu_CV.pdf
+          test -f published/.nojekyll
+
+          # Reject unexpected files added directly to the published site.
+          cat > expected-files.txt <<'EXPECTED'
+          .nojekyll
+          assets/img/portrait_20261024.webp
+          assets/img/prof_pic.jpg
+          assets/pdf/Yifan_Lyu_CV.pdf
+          index.html
+          EXPECTED
+          find published -type f ! -path 'published/.git/*' -printf '%P\n' | sort > actual-files.txt
+          diff -u expected-files.txt actual-files.txt
+
+          echo "All published files match the source; no unexpected files detected."
