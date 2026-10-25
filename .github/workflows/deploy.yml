@@ -7,6 +7,7 @@ on:
       - "index.html"
       - "assets/img/prof_pic.jpg"
       - "assets/img/portrait_20261024.webp.b64"
+      - "assets/pdf/Yifan_Lyu_CV.pdf.b64"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
@@ -28,15 +29,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p _site/assets/img
+          mkdir -p _site/assets/img _site/assets/pdf
           cp index.html _site/index.html
           cp assets/img/prof_pic.jpg _site/assets/img/prof_pic.jpg
           base64 --decode assets/img/portrait_20261024.webp.b64 > _site/assets/img/portrait_20261024.webp
+          base64 --decode assets/pdf/Yifan_Lyu_CV.pdf.b64 > _site/assets/pdf/Yifan_Lyu_CV.pdf
           touch _site/.nojekyll
           test -s _site/index.html
           grep -qi '<!DOCTYPE html>' _site/index.html
           test -s _site/assets/img/prof_pic.jpg
           test -s _site/assets/img/portrait_20261024.webp
+          test -s _site/assets/pdf/Yifan_Lyu_CV.pdf
+          head -c 5 _site/assets/pdf/Yifan_Lyu_CV.pdf | grep -q "%PDF-"
           echo "Homepage and portrait ready for deployment."
 
       - name: Deploy to GitHub Pages
