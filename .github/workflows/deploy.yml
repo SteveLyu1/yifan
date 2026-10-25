@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: personal-site-deploy
@@ -21,9 +21,14 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned GitHub source
+        with:
+          persist-credentials: false
 
       - name: Prepare static homepage
         shell: bash
@@ -44,8 +49,9 @@ jobs:
           echo "Homepage and portrait ready for deployment."
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0 pinned
         with:
           branch: gh-pages
           folder: _site
           clean: true
+          force: false
