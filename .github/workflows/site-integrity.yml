@@ -45,7 +45,14 @@ jobs:
           cmp source/index.html published/index.html
           cmp source/assets/img/prof_pic.jpg published/assets/img/prof_pic.jpg
           base64 --decode source/assets/img/portrait_20261024.webp.b64 | cmp - published/assets/img/portrait_20261024.webp
-          base64 --decode source/assets/pdf/Yifan_Lyu_CV.pdf.b64 | cmp - published/assets/pdf/Yifan_Lyu_CV.pdf
+          # Restore the exact updated PDF from the prior version and a checked binary delta.
+          cv_temp="$(mktemp -d)"
+          trap 'rm -rf "$cv_temp"' EXIT
+          base64 --decode source/assets/pdf/Yifan_Lyu_CV.pdf.b64 > "$cv_temp/prior.pdf"
+          cat source/assets/pdf/_cvdelta0{1,2,3,4}.b64 | base64 --decode > "$cv_temp/update.zst"
+          zstd -q -d --patch-from="$cv_temp/prior.pdf" "$cv_temp/update.zst" -o "$cv_temp/current.pdf"
+          echo "03979177ca3aacf2bd451ab217af933ba8e35d074aaf36c2c10e8931f5865166  $cv_temp/current.pdf" | sha256sum --check --status
+          cmp "$cv_temp/current.pdf" published/assets/pdf/Yifan_Lyu_CV.pdf
           test -f published/.nojekyll
 
           # Reject unexpected files added directly to the published site.
