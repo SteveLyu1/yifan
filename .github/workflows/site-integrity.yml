@@ -1,10 +1,6 @@
 name: Verify published site integrity
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/site-integrity.yml"
   workflow_run:
     workflows: ["Deploy site"]
     types: [completed]
@@ -51,7 +47,7 @@ jobs:
           base64 --decode source/assets/pdf/Yifan_Lyu_CV.pdf.b64 > "$cv_temp/prior.pdf"
           cat source/assets/pdf/_cvdelta0{1,2,3,4}.b64 | base64 --decode > "$cv_temp/update.zst"
           zstd -q -d --patch-from="$cv_temp/prior.pdf" "$cv_temp/update.zst" -o "$cv_temp/current.pdf"
-          echo "03979177ca3aacf2bd451ab217af933ba8e35d074aaf36c2c10e8931f5865166  $cv_temp/current.pdf" | sha256sum --check --status
+          echo "72aff29bb76ecb657ee4a07730f051ce43ca3376357bc2fe7f02fa4d6ebd41a0  $cv_temp/current.pdf" | sha256sum --check --status
           cmp "$cv_temp/current.pdf" published/assets/pdf/Yifan_Lyu_CV.pdf
           test -f published/.nojekyll
 

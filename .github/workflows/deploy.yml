@@ -8,6 +8,7 @@ on:
       - "assets/img/prof_pic.jpg"
       - "assets/img/portrait_20261024.webp.b64"
       - "assets/pdf/Yifan_Lyu_CV.pdf.b64"
+      - "assets/pdf/_cvdelta*.b64"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
@@ -42,7 +43,7 @@ jobs:
           base64 --decode assets/pdf/Yifan_Lyu_CV.pdf.b64 > "$RUNNER_TEMP/cv_prior.pdf"
           cat assets/pdf/_cvdelta0{1,2,3,4}.b64 | base64 --decode > "$RUNNER_TEMP/cv_update.zst"
           zstd -q -d --patch-from="$RUNNER_TEMP/cv_prior.pdf" "$RUNNER_TEMP/cv_update.zst" -o _site/assets/pdf/Yifan_Lyu_CV.pdf
-          echo "03979177ca3aacf2bd451ab217af933ba8e35d074aaf36c2c10e8931f5865166  _site/assets/pdf/Yifan_Lyu_CV.pdf" | sha256sum --check --status
+          echo "72aff29bb76ecb657ee4a07730f051ce43ca3376357bc2fe7f02fa4d6ebd41a0  _site/assets/pdf/Yifan_Lyu_CV.pdf" | sha256sum --check --status
           touch _site/.nojekyll
           test -s _site/index.html
           grep -qi '<!DOCTYPE html>' _site/index.html
