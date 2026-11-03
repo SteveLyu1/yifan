@@ -47,7 +47,11 @@ jobs:
           base64 --decode source/assets/pdf/Yifan_Lyu_CV.pdf.b64 > "$cv_temp/prior.pdf"
           cat source/assets/pdf/_cvdelta0{1,2,3,4}.b64 | base64 --decode > "$cv_temp/update.zst"
           zstd -q -d --patch-from="$cv_temp/prior.pdf" "$cv_temp/update.zst" -o "$cv_temp/current.pdf"
-          echo "72aff29bb76ecb657ee4a07730f051ce43ca3376357bc2fe7f02fa4d6ebd41a0  $cv_temp/current.pdf" | sha256sum --check --status
+          # Apply the exact user-approved CV revision (2026-11-04).
+          cat source/assets/pdf/_cvnext0{1,2,3,4}.b64 | base64 --decode > "$cv_temp/next.zst"
+          zstd -q -d --patch-from="$cv_temp/current.pdf" "$cv_temp/next.zst" -o "$cv_temp/new.pdf"
+          mv "$cv_temp/new.pdf" "$cv_temp/current.pdf"
+          echo "70769057d2dc5e0293f9f867f14e3fa7136e27644b7216fd2c46ffa3065727a1  $cv_temp/current.pdf" | sha256sum --check --status
           cmp "$cv_temp/current.pdf" published/assets/pdf/Yifan_Lyu_CV.pdf
           test -f published/.nojekyll
 
